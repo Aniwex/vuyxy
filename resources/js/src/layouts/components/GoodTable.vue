@@ -14,7 +14,20 @@
         </div>
       </b-form-group>
     </div>
+<div class="d-flex justify-content-start">
+      <b-button-group>
+        <b-dropdown
+      variant="primary"
+      left
+      no-caret
+    >
+    <template #button-content><filter-icon size="1x" class="custom-class"></filter-icon></template>
+      <h4>Тэги</h4>
+     
+    </b-dropdown>
 
+      </b-button-group>
+    </div>
     <!-- table -->
     <vue-good-table
       :columns="columns"
@@ -41,7 +54,7 @@
         slot="table-row"
         slot-scope="props"
       >
-
+        
         <!-- Column: Name -->
         <span
           v-if="props.column.field === 'ID'"
@@ -205,14 +218,14 @@
 
 <script>
 import {
-  BAvatar, BBadge, BPagination, BFormGroup, BFormInput, BFormSelect, BDropdown, BDropdownItem,
+  BAvatar, BBadge, BPagination, BFormGroup, BFormInput, BFormSelect, BDropdown, BDropdownItem,BDropdownDivider
 } from 'bootstrap-vue'
 import { VueGoodTable } from 'vue-good-table'
 import store from '@/store/index'
 import 'vue-good-table/dist/vue-good-table.css'
 import './good-table.js'
 import axios from 'axios'
-import {CheckIcon,XCircleIcon} from 'vue-feather-icons'
+import {CheckIcon,XCircleIcon,FilterIcon} from 'vue-feather-icons'
 export default {
   components: {
     VueGoodTable,
@@ -226,6 +239,8 @@ export default {
     BDropdownItem,
     CheckIcon,
     XCircleIcon,
+    FilterIcon,
+    BDropdownDivider,
   },
   data() {
     return {
